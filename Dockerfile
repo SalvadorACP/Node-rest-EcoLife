@@ -5,6 +5,12 @@ FROM node:lts-slim
 #Crea y cambiamos al directorio /app
 WORKDIR /app
 
+# Copiar el archivo package.jason y package-lock.jason a /app
+COPY ./package*.jason /app/
+
+# Intalar las dependencias de node
+RUN npm install
+
 #Copia el contenido del proyecto a /app
 COPY . /app
 
