@@ -1,16 +1,16 @@
-const http = require('http');
-
+const express = require('express');
+const app = express();
 const puerto = 80;
 
 //callback
-const servidor = http.createServer(function(req,res){
+app.get('/', function(req,res){
     res.statusCode=200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Hola mundo!');
+    res.send('Hola mundo!');
 
 });
 
-servidor.listen(puerto, function(){
+app.listen(puerto, function(){
     console.log('servidor iniciado');
 });
 
