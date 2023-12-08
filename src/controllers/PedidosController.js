@@ -1,22 +1,26 @@
-const ProductosModel = require("../models/ProductosModel");
+const PedidosModel = require("../models/PedidosModel");
 
-class ProductosController
+class PedidosController
 {
     static async indexGet(req, res)
     {
-        let data = await ProductosModel.consultar();
+        let data = await PedidosModel.consultar();
         res.send(data);
     }
     static async itemGet(req, res){
         let id = req.params.id;
-        let data = await ProductosModel.consultarPorId(id);
-        res.send(data);
+        let data =await PedidosModel.consultarPorId(id);
+        if (data.length > 0){
+            res.send(data[0]);
+            return;
+        }
+        res.status(404).send({error: 'Not Found'});
     }
     static async indexPost(req, res) {
         try {
             const newData = req.body;
 
-            const insertedId = await ProductosModel.insertar(newData);
+            const insertedId = await PedidosModel.insertar(newData);
 
             res.status(201)
                 .header('Location', `/temas/${insertedId}`)
@@ -28,4 +32,4 @@ class ProductosController
     }
 }
 
-module.exports = ProductosController;
+module.exports = PedidosController;

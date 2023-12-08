@@ -2,25 +2,29 @@ const express = require('express');
 const app = express();
 const puerto = 80;
 
-const MenusController =require('./controllers/MenusController');
+const DetallesPedidosController =require('./controllers/DetallesPedidosController');
 app.use(express.json());
-app.get('/menus', MenusController.indexGet);
-app.get('/menus/:id([0-9]+)', MenusController.itemGet);
+app.get('/detallespedidos', DetallesPedidosController.indexGet);
+app.get('/detallespedidos/:id([0-9]+)', DetallesPedidosController.itemGet);
+app.post('/detallespedidos', DetallesPedidosController.indexPost);
 
-const CategoriasController =require('./controllers/CategoriasController');
+const PedidosController =require('./controllers/PedidosController');
 app.use(express.json());
-app.get('/categorias', CategoriasController.indexGet);
-app.get('/categorias/:id([0-9]+)', CategoriasController.itemGet);
+app.get('/pedidos', PedidosController.indexGet);
+app.get('/pedidos/:id([0-9]+)', PedidosController.itemGet);
+app.post('/pedidos', PedidosController.indexPost);
 
 const ProductosController =require('./controllers/ProductosController');
 app.use(express.json());
 app.get('/productos', ProductosController.indexGet);
 app.get('/productos/:id([0-9]+)', ProductosController.itemGet);
+app.post('/productos', ProductosController.indexPost);
 
-const ProductosTiposController =require('./controllers/ProductosTiposController');
+const UsuariosController =require('./controllers/UsuariosController');
 app.use(express.json());
-app.get('/productos_tipos', ProductosTiposController.indexGet);
-app.get('/productos_tipos/:id([0-9]+)', ProductosTiposController.itemGet);
+app.get('/usuarios', UsuariosController.indexGet);
+app.get('/usuarios/:id([0-9]+)', UsuariosController.itemGet);
+app.post('/usuarios', UsuariosController.indexPost);
 
 app.get('/', function(req,res){
     res.statusCode=200;

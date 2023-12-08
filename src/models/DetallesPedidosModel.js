@@ -1,22 +1,22 @@
 const {connectToMysql} = require('../dbconnection');
 
-class ProductosModel
+class DetallesPedidosModel
 {
     static async consultar()
     {
         let db = await connectToMysql();
-        let query = db('Productos');
+        let query = db('Detalles_Pedido');
         return await query;
     }
     static async consultarPorId(id)
     {
-        return await db('Productos').where('id_producto', id);
+        return await db('Detalles_Pedido').where('id_detalle', id);
     }
     static async insertar(datos) {
         let db = await connectToMysql();
-        const result = await db('Productos').insert(datos).returning('id_producto');
+        const result = await db('Detalles_Pedido').insert(datos).returning('id_detalle');
         return result[0];
     }
 }
 
-module.exports = ProductosModel;
+module.exports = DetallesPedidosModel;

@@ -1,37 +1,40 @@
-CREATE DATABASE IF NOT EXISTS restaurante;
+CREATE DATABASE IF NOT EXISTS lorenzzositio;
 
-USE restaurante;
+USE lorenzzositio;
 
-Create Table productos_tipos (
-    id_tipo INTEGER NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id_tipo)
-)
-
-CREATE TABLE menus (
-    id_menu INTEGER NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(255) NOT NULL,
-    hora_inicio TIME NOT NULL,
-    hora_fin TIME NOT NULL,
-    PRIMARY KEY (id_categoria)
-)
-
-CREATE TABLE categorias (
-    id_categoria INTEGER NOT NULL AUTO_INCREMENT,
-    fk_id_menu INTEGER NOT NULL,
-    nombre VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id_categoria),
-    FOREIGN KEY (fk_id_menu) REFERENCES menus(id_menu)
-)
-
-CREATE TABLE productos (
-    id_producto INTEGER NOT NULL AUTO_INCREMENT,
-    descripcion VARCHAR(255) NOT NULL,
-    precio DECIAML(5,2) NOT NULL,
-    fk_id_tipo INTEGER NOT NULL,
-    fk_id_categoria INTEGER NOT NULL,
-    PRIMARY KEY (id_producto),
-    FOREIGN KEY (fk_id_tipo) REFERENCES productos_tipos(id_tipo),
-    FOREIGN KEY (fk_id_categoria) REFERENCES productos_tipos(id_categoria)
+CREATE TABLE Usuarios (
+    id_usuario INT PRIMARY KEY,
+    nombre_usuario VARCHAR(50) NOT NULL,
+    correo_electronico VARCHAR(100) NOT NULL,
+    contrasena VARCHAR(255) NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE Productos (
+    id_producto INT PRIMARY KEY,
+    nombre_producto VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
+    talla VARCHAR(10),
+    marca VARCHAR(50),
+    imagen_url VARCHAR(255),
+    disponible BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE Pedidos (
+    id_pedido INT PRIMARY KEY,
+    id_usuario INT,
+    fecha_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
+);
+
+CREATE TABLE Detalles_Pedido (
+    id_detalle INT PRIMARY KEY,
+    id_pedido INT,
+    id_producto INT,
+    cantidad INT,
+    precio_unitario DECIMAL(10, 2),
+    FOREIGN KEY (id_pedido) REFERENCES Pedidos(id_pedido),
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
+);
