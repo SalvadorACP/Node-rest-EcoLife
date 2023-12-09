@@ -1,22 +1,22 @@
-const DetallesPedidosModel = require("../models/DetallesPedidosModel");
+const DetalleVentasModel = require("../models/DetalleVentasModel");
 
-class DetallesPedidosController
+class DetalleVentasController
 {
     static async indexGet(req, res)
     {
-        let data = await DetallesPedidosModel.consultar();
+        let data = await DetalleVentasModel.consultar();
         res.send(data);
     }
     static async itemGet(req, res){
         let id = req.params.id;
-        let data = await DetallesPedidosModel.consultarPorId(id);
+        let data = await DetalleVentasModel.consultarPorId(id);
         res.send(data);
     }
     static async indexPost(req, res) {
         try {
             const newData = req.body;
 
-            const insertedId = await DetallesPedidosModel.insertar(newData);
+            const insertedId = await DetalleVentasModel.insertar(newData);
 
             res.status(201)
                 .header('Location', `/temas/${insertedId}`)
@@ -28,4 +28,4 @@ class DetallesPedidosController
     }
 }
 
-module.exports = DetallesPedidosController;
+module.exports = DetalleVentasController;

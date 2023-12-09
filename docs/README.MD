@@ -5,26 +5,24 @@ de endpoints disponibles con enlaces a sus respectivas documentaciones detallada
 
 ## Descripción General del proyecto
 
-Lorenzzo es un sitio web dedicado a la venta de ropa, calzado y accesorios y esto es basicamente la conexión con la base de datos y el buen funcionamiento de un servidor web
+EcoLife Market es una appweb que busca centralizar la venta de productos de bienestar, salud e higiene. pero que ademas busca que estos productos sean sostenibles e idealmente organicos.
 
 ### Descripción General de Endpoints
 
 | Recurso                    | Descripción |
 | -------------------------- | ----------- |
-| `GET /temas`               | Recupera la lista de todos los temas disponibles. |
-| [`GET /temas/{id}/usuarios`](./endpoints/get-id-usuarios.md)   | Obtiene la lista de usuarios asociados a un tema específico. |
-| `GET /usuarios`              | Recupera la lista de todos los usuarios disponibles. |
-| `GET /usuarios/{id}/` | Obtiene la lista de un usuario específico. |
+| `GET /usuarios`               | Recupera la lista de todos los usuarios. |
+| [`POST /usuarios`]   | Añade un nuevo registro en la base de datos en la tabla de usuarios. |
 | `GET /productos`             | Recupera la lista de todos los productos disponibles. |
-| `GET /productos/{id}`        | Obtiene información detallada sobre un producto específico. |
-| `GET /pedidos`             | Recupera la lista de todos los pedidos disponibles. |
-| `GET /pedidos/{id}`        | Obtiene información detallada sobre un pedido específico. |
-| `GET /productos`             | Recupera la lista de todos los detalles de un pedido disponibles. |
-| `GET /productos/{id}`        | Obtiene información detallada sobre los detalles de un pedido específico. |
+| `POST /productos`        | Añade un nuevo registro en la base de datos en la tabla de productos |
+| `GET /ventas`             | Recupera la lista de todos las ventas realizadas. |
+| `POST /ventas`        | Añade un nuevo registro en la base de datos en la tabla de ventas. |
+| `GET /detallesventas`             | Recupera la lista de todos los detalles de las ventas disponibles. |
+| `POST /detallesventas`        | Añade un nuevo registro en la base de datos en la tabla de detalles_ventas. |
 
 #### Requisitos
 
-Para correr este proyecto se necesita visual studio code, docker desktop (aqui es donde se crea la magia, o sea, el contenedor de datos), tambien se necesita un sistema gestor de base de datos que en este caso optamos por utilizar HeidiSQL, y de igual forma para hacer consultas y ejecutar métodos se necesita Postman.
+Para poder usuar este proyecto es necesario que se tenga descargado docker, pues la aplicacion funciona a traves del uso de contenedores de docker, por otra parte tambien es necesario utilizar un editor de codigo para poder visualizar el codigo fuente y por ultimo un manejador de base de datos, si quieres realizar pruebas de la API tambien será necesario que uses Postman.
 
 #### Instrucciones
 

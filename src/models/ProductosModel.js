@@ -5,16 +5,16 @@ class ProductosModel
     static async consultar()
     {
         let db = await connectToMysql();
-        let query = db('Productos');
+        let query = db('productos');
         return await query;
     }
     static async consultarPorId(id)
     {
-        return await db('Productos').where('id_producto', id);
+        return await db('productos').where('id', id);
     }
     static async insertar(datos) {
         let db = await connectToMysql();
-        const result = await db('Productos').insert(datos).returning('id_producto');
+        const result = await db('productos').insert(datos).returning('id');
         return result[0];
     }
 }

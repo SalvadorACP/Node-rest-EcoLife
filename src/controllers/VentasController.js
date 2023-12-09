@@ -1,15 +1,15 @@
-const PedidosModel = require("../models/PedidosModel");
+const VentasModel = require("../models/VentasModel");
 
-class PedidosController
+class VentasController
 {
     static async indexGet(req, res)
     {
-        let data = await PedidosModel.consultar();
+        let data = await VentasModel.consultar();
         res.send(data);
     }
     static async itemGet(req, res){
         let id = req.params.id;
-        let data =await PedidosModel.consultarPorId(id);
+        let data =await VentasModel.consultarPorId(id);
         if (data.length > 0){
             res.send(data[0]);
             return;
@@ -20,7 +20,7 @@ class PedidosController
         try {
             const newData = req.body;
 
-            const insertedId = await PedidosModel.insertar(newData);
+            const insertedId = await VentasModel.insertar(newData);
 
             res.status(201)
                 .header('Location', `/temas/${insertedId}`)
@@ -32,4 +32,4 @@ class PedidosController
     }
 }
 
-module.exports = PedidosController;
+module.exports = VentasController;

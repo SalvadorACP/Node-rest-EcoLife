@@ -7,9 +7,9 @@ const connectToMysql = async function(){
         client: 'mysql2',
         connection:{
             host: 'mysql',
-            user: 'user_lorenzzositio',
+            user: 'user_SACP',
             password: dbPassword,
-            database: 'lorenzzositio'
+            database: 'EcoLife'
         }
     });
     return db;

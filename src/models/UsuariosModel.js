@@ -5,16 +5,16 @@ class UsuariosModel
     static async consultar()
     {
         let db = await connectToMysql();
-        let query = db('Usuarios');
+        let query = db('usuarios');
         return await query;
     }
     static async consultarPorId(id)
     {
-        return await db('Usuarios').where('id_usuario', id);
+        return await db('usuarios').where('id_usuario', id);
     }
     static async insertar(datos) {
         let db = await connectToMysql();
-        const result = await db('Usuarios').insert(datos).returning('id_usuario');
+        const result = await db('usuarios').insert(datos).returning('id_usuario');
         return result[0];
     }
 }

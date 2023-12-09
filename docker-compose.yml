@@ -20,8 +20,8 @@ services:
       - 33020:3306
     environment:
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
-      MYSQL_DATABASE: lorenzzositio
-      MYSQL_USER: user_lorenzzositio
+      MYSQL_DATABASE: EcoLife
+      MYSQL_USER: user_SACP
       MYSQL_PASSWORD_FILE: /run/secrets/db_password
     secrets:
       - db_root_password

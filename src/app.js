@@ -2,17 +2,17 @@ const express = require('express');
 const app = express();
 const puerto = 80;
 
-const DetallesPedidosController =require('./controllers/DetallesPedidosController');
+const DetalleVentasController =require('./controllers/DetalleVentasController');
 app.use(express.json());
-app.get('/detallespedidos', DetallesPedidosController.indexGet);
-app.get('/detallespedidos/:id([0-9]+)', DetallesPedidosController.itemGet);
-app.post('/detallespedidos', DetallesPedidosController.indexPost);
+app.get('/detallesventas', DetalleVentasController.indexGet);
+app.get('/detallesventas/:id([0-9]+)', DetalleVentasController.itemGet);
+app.post('/detallesventas', DetalleVentasController.indexPost);
 
-const PedidosController =require('./controllers/PedidosController');
+const VentasController =require('./controllers/VentasController');
 app.use(express.json());
-app.get('/pedidos', PedidosController.indexGet);
-app.get('/pedidos/:id([0-9]+)', PedidosController.itemGet);
-app.post('/pedidos', PedidosController.indexPost);
+app.get('/ventas', VentasController.indexGet);
+app.get('/ventas/:id([0-9]+)', VentasController.itemGet);
+app.post('/ventas', VentasController.indexPost);
 
 const ProductosController =require('./controllers/ProductosController');
 app.use(express.json());
