@@ -10,11 +10,11 @@ class UsuariosModel
     }
     static async consultarPorId(id)
     {
-        return await db('usuarios').where('id_usuario', id);
+        return await db('usuarios').where('id', id);
     }
     static async insertar(datos) {
         let db = await connectToMysql();
-        const result = await db('usuarios').insert(datos).returning('id_usuario');
+        const result = await db('usuarios').insert(datos).returning('id');
         return result[0];
     }
 }
