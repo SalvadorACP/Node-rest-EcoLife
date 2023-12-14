@@ -77,7 +77,7 @@ Asegúrate de tener instalado y configurado Docker antes de comenzar.
 ## Documentación detallada
 
 Para obtener información detallada sobre los endpoints y cómo utilizar la API,
-consulta la [documentación detallada](./docs/README.md).
+consulta la [documentación detallada](./endpoints).
 
 ## Enlaces externos
 
